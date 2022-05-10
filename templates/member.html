@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 align="center">Оформление каюты</h1>
+{% if gender == "male" %}
+    {% if age < 19 %}
+        <img src="/static/img/light_blue.jpg" height="600px"><img src="/static/img/baby_yoda.jpg" height="600px">
+    {% else %}
+        <img src="/static/img/dark_blue.jpg" height="600px"><img src="/static/img/yoda.jpg" height="600px">
+    {% endif %}
+{% else %}
+    {% if age < 19 %}
+        <img src="/static/img/light_orange.jpg" height="600px"><img src="/static/img/baby_yoda.jpg" height="600px">
+    {% else %}
+        <img src="/static/img/dark_orange.png" height="600px"><img src="/static/img/yoda.jpg" height="600px">
+    {% endif %}
+{% endif %}
+{% endblock %}

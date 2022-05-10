@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header>
+    <table width="100%">
+        <tr class="navbar navbar-light bg-light">
+            <td width="50%"><nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#"><h1>Миссия колонизация Марса</h1></a>
+            </nav></td>
+            <td width="50%" align="right"><nav>
+                <a href="#">Mars One</a>
+            </nav></td>
+        </tr>
+        <tr class="navbar navbar-light">
+            <td>
+                <font color="#cccccc">И на Марсе будут яблони цвести!</font>
+            </td>
+        </tr>
+    </table>
+</header>
+    {% if prof %}
+        {% if ("инженер" in prof) or ("строитель" in prof) %}
+                <h2 align="center">Инженерные тренажёры</h2>
+        {% else %}
+                <h2 align="center">Научные симуляторы</h2>
+        {% endif %}
+    {% endif %}
+    <img src="{{ img }}" align="center">
+    {% if list_prof %}
+        {% if list == "ul" %}
+            <ul>
+                {% set user_list = ['инженер-исследователь', 'пилот', 'строитель', 'экзобиолог', 'врач',
+                    'инженер по терраформированию', 'климатолог', 'специалист по радиационной защите', 'астрогеолог',
+                    'гляциолог', 'инженер жизнеобеспечения', 'метеоролог', 'оператор марсохода', 'киберинженер',
+                    'штурман', 'пилот дронов'] %}
+                {% for user in user_list %}
+                <li>{{ user }}
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            {% if list == "ol" %}
+                <ol>
+                    {% set user_list = ['инженер-исследователь', 'пилот', 'строитель', 'экзобиолог', 'врач',
+                    'инженер по терраформированию', 'климатолог', 'специалист по радиационной защите', 'астрогеолог',
+                    'гляциолог', 'инженер жизнеобеспечения', 'метеоролог', 'оператор марсохода', 'киберинженер',
+                    'штурман', 'пилот дронов'] %}
+                    {% for user in user_list %}
+                    <li>{{ user }}
+                    </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <h2 align="center">Неверный параметр</h2>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    <!-- Begin page content -->
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>
